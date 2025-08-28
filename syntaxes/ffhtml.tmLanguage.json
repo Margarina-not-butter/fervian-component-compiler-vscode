@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "FFHTML",
+    "scopeName": "text.fervian-formatted-html",
+    "patterns": [
+        { "include": "#directives" },
+        { "include": "#keywords" },
+        { "include": "#strings" },
+        { "include": "text.html.basic" }
+    ],
+    "repository": {
+"directives": {
+        "patterns": [
+            {
+                "name": "keyword.directive.ffhtml",
+                "begin": "<!--\\s*#(\\w+)\\b",
+                "beginCaptures": {
+                    "1": { "name": "keyword.directive.name.ffhtml" }
+                },
+                "end": "-->",
+                "patterns": [
+                    {
+                        "name": "variable.parameter.ffhtml",
+                        "begin": "\\b(\\w+)",
+                        "beginCaptures": {
+                            "1": { "name": "variable.parameter.name.ffhtml" }
+                        },
+                        "end": "(?=\\s|-->)",
+                        "patterns": [
+                            {
+                                "name": "keyword.operator.assignment.ffhtml",
+                                "match": "="
+                            },
+                            {
+                                "name": "string.quoted.double.ffhtml",
+                                "begin": "\"",
+                                "end": "\"",
+                                "patterns": [
+                                    {
+                                        "name": "constant.character.escape.ffhtml",
+                                        "match": "\\\\."
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "string.quoted.single.ffhtml",
+                                "begin": "'",
+                                "end": "'",
+                                "patterns": [
+                                    {
+                                        "name": "constant.character.escape.ffhtml",
+                                        "match": "\\\\."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "keywords": {},
+    "strings": {
+        "patterns": [
+            {
+                "name": "variable.parameter.value.ffhtml",
+                "begin": "\"",
+                "end": "\"",
+                "patterns": [
+                    {
+                        "name": "constant.character.escape.ffhtml",
+                        "match": "\\\\."
+                    }
+                ]
+            },
+            {
+                "name": "variable.parameter.value.ffhtml",
+                "begin": "'",
+                "end": "'",
+                "patterns": [
+                    {
+                        "name": "constant.character.escape.ffhtml",
+                        "match": "\\\\."
+                    }
+                ]
+            }
+        ]
+    }
+}
+}

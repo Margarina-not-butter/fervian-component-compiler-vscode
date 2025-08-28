@@ -1,0 +1,37 @@
+{
+  "name": "fervian-component-compiler-extension",
+  "displayName": "FCC Support for FFHTML",
+  "description": "Adds support for Fervian Component Compiler FFHTML language.",
+  "version": "1.1.0",
+  "repository": "https://github.com/Margarina-not-butter/fervian-component-compiler-extension",
+  "pricing": "Free",
+  "publisher": "adrianvictor",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": ["Programming Languages", "Snippets"],
+  "contributes": {
+"languages": [
+    {
+      "id": "ffhtml",
+      "aliases": ["FFHTML", "ffhtml"],
+      "extensions": [".ffhtml"],
+      "configuration": "./language-configuration.json",
+      "extensions": ["html"]
+    }
+  ],
+  "grammars": [
+    {
+      "language": "ffhtml",
+      "scopeName": "text.fervian-formatted-html",
+      "path": "./syntaxes/ffhtml.tmLanguage.json"
+    }
+  ],
+  "snippets": [
+    {
+      "language": "ffhtml",
+      "path": "./snippets/ffhtml.json"
+    }
+  ]
+}
+}

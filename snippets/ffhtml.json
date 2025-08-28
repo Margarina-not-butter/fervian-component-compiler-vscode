@@ -1,0 +1,17 @@
+{
+  "Include Directive": {
+    "prefix": "include",
+    "body": "<!-- #include file=\"$1\" -->",
+    "description": "Insert #include directive, that will be replaced with the content of a specfied include."
+  },
+  "Arg Directive": {
+    "prefix": "arg",
+    "body": "<!-- #arg \"$1\" \"$2\" -->",
+    "description": "Insert #arg directive, an argument and it's placeholder for includes."
+  },
+  "Root Directive": {
+    "prefix": "root",
+    "body": "<!-- #root -->",
+    "description": "Insert #root directive that will be replaced by the relative path to the project build root."
+  }
+}
