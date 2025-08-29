@@ -6,10 +6,18 @@
   "repository": "https://github.com/Margarina-not-butter/fervian-component-compiler-extension",
   "pricing": "Free",
   "publisher": "adrianvictor",
+  "icon": "./favicon.png",
+  "main": "extension.js",
+  "galleryBanner": {"color": "#0000ff"},
   "engines": {
     "vscode": "^1.103.0"
   },
   "categories": ["Programming Languages", "Snippets"],
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:ffhtml",
+    "onCommand:ffhtml.helloWorld"
+  ],
   "contributes": {
 "languages": [
     {
@@ -32,6 +40,38 @@
       "language": "ffhtml",
       "path": "./snippets/ffhtml.json"
     }
+  ],
+  "viewsContainers": {
+    "activitybar": [
+      {
+        "id": "ffhtml-sidebar",
+        "title": "FFHTML",
+        "icon": "media/ffhtml-activitybar.svg"
+      }
+    ]
+  },
+"views": {
+  "explorer": [
+    {
+      "id": "ffhtmlView",
+      "name": "FFCompiler"
+    }
   ]
+},
+"commands": [
+    { "command": "ffhtmlView.reload", "title": "Reload FFHTML View" },
+    { "command": "ffhtmlView.createResource", "title": "Create Resource File" },
+    { "command": "ffhtmlView.createSource", "title": "Create Source File" },
+    { "command": "ffhtmlView.createInclude", "title": "Create Include File" },
+    { "command": "ffhtmlView.delete", "title": "Delete File/Folder" }
+],
+"menus": {
+    "view/item/context": [
+        { "command": "ffhtmlView.createResource", "when": "view == ffhtmlView" },
+        { "command": "ffhtmlView.createSource", "when": "view == ffhtmlView" },
+        { "command": "ffhtmlView.createInclude", "when": "view == ffhtmlView" },
+        { "command": "ffhtmlView.delete", "when": "view == ffhtmlView" }
+    ]
+}
 }
 }
